@@ -38,4 +38,46 @@ add_action('wp_enqueue_scripts', function() {
     // wp_enqueue_script('custom-script', get_stylesheet_directory_uri() . '/assets/js/main.js', array('jquery'), $style_version);
     // wp_enqueue_script('create-event-script', get_stylesheet_directory_uri() . '/assets/js/create-event.js', array('jquery'), $style_version);
 
+     // Enqueue Three.js core
+    //  wp_enqueue_script(
+    //     'three-js',
+    //     'https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js', // Use the module version
+    //     array(),
+    //     null,
+    //     true
+    // );
+    
+    // // Enqueue OrbitControls (module version)
+    // wp_enqueue_script(
+    //     'three-orbit-controls',
+    //     'https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/controls/OrbitControls.js',
+    //     array('three-js'),
+    //     null,
+    //     true
+    // );
+    
+    // // Enqueue regal-particles.js (your new script)
+    // wp_enqueue_script(
+    //     'regal-particles',
+    //     get_stylesheet_directory_uri() . '/assets/js/regal-particles.js',
+    //     array('three-js', 'three-orbit-controls'),
+    //     null, // You can define $style_version here if needed
+    //     true
+    // );
+    
+    // // Add type="module" to both three-orbit-controls and regal-particles script tags
+    // add_filter('script_loader_tag', 'add_module_to_threejs_script', 10, 3);
+    // function add_module_to_threejs_script($tag, $handle, $src) {
+    //     if (in_array($handle, ['three-orbit-controls', 'regal-particles'])) {
+    //         $tag = '<script type="module" src="' . esc_url($src) . '"></script>';
+    //     }
+    //     return $tag;
+    // }
+    
+
+
 });
+
+require get_stylesheet_directory().'/functions/elementor.php';
+require get_stylesheet_directory().'/functions/pods.php';
+require get_stylesheet_directory().'/functions/shortcodes/pods_artist_featured_image.php';
